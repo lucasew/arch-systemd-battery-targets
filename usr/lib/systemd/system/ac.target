@@ -1,0 +1,5 @@
+# SOURCE: https://chrisdown.name/2017/10/29/adding-power-related-targets-to-systemd.html
+[Unit]
+Description=On AC power
+DefaultDependencies=no
+StopWhenUnneeded=yes

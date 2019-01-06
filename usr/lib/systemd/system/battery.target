@@ -1,0 +1,4 @@
+[Unit]
+Description=On battery
+DefaultDependencies=no
+StopWhenUnneeded=yes
