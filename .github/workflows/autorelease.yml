@@ -65,9 +65,11 @@ jobs:
         if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REF: ${{ github.ref }}
+          REF_NAME: ${{ github.ref_name }}
         run: |
-          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
-             gh release create "${{ github.ref_name }}" --generate-notes || echo "Release already exists or failed"
+          if [[ "$REF" == refs/tags/* ]]; then
+             gh release create "$REF_NAME" --generate-notes || echo "Release already exists or failed"
           fi
 
       - name: Upload Artifacts

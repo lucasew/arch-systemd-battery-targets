@@ -2,6 +2,7 @@
 node = "20.12.2"
 typos = "1.28.4"
 actionlint = "1.7.4"
+shellcheck = "0.10.0"
 "npm:prettier" = "3.4.2"
 
 [tasks.install]
