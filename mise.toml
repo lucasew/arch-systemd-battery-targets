@@ -1,0 +1,42 @@
+[tools]
+node = "20.12.2"
+typos = "1.28.4"
+actionlint = "1.7.4"
+shellcheck = "0.10.0"
+"npm:prettier" = "3.4.2"
+
+[tasks.install]
+description = "Install dependencies"
+run = "mise install"
+
+[tasks."lint:typos"]
+description = "Check for typos"
+run = "typos ."
+
+[tasks."lint:actionlint"]
+description = "Lint GitHub Actions workflows"
+run = "actionlint"
+
+[tasks.lint]
+description = "Run all linters"
+depends = ["lint:*"]
+
+[tasks."fmt:prettier"]
+description = "Format files with Prettier"
+run = "prettier --write ."
+
+[tasks.fmt]
+description = "Run all formatters"
+depends = ["fmt:*"]
+
+[tasks.test]
+description = "Run tests"
+run = "echo \"No tests\""
+
+[tasks.codegen]
+description = "Run code generation"
+run = "echo \"No codegen\""
+
+[tasks.ci]
+description = "Run CI checks"
+depends = ["lint", "test"]
